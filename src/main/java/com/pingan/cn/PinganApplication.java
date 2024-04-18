@@ -13,11 +13,7 @@ import java.util.Map;
 
 @EnableSwagger2
 @SpringBootApplication
-//@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-//@ComponentScan(basePackages = {"com.pingan.cn.*"})
-@ComponentScan(basePackages = {"com.pingan.cn.lish.*","com.pingan.cn.guanqu","com.pingan.cn.nongzuowu" ,"com.pingan.cn.spatialdatamanage",
-		"com.pingan.cn.chaland","com.pingan.cn.ningbomap.*","com.pingan.cn.aoyunhui","com.pingan.cn.lmsg", "com.pingan.cn.taxi", "com.pingan.cn.cityopen",
-		"com.pingan.cn.fangxun", "com.pingan.cn.fangchan" })
+@ComponentScan(basePackages = {"com.pingan.cn.route" })
 @Component
 public class PinganApplication extends SpringBootServletInitializer {
 

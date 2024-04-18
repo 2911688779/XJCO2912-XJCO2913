@@ -24,10 +24,7 @@ public class User implements Serializable {
     private String username;
     @Column
     private String password;
-    @Column
-    private String className;//班级
-    @Column
-    private String major;//主修专业
+
     @Column
     private String role;//用户的角色
 
@@ -35,5 +32,4 @@ public class User implements Serializable {
 
     private String email;//email
 
-    private String age;
 }
