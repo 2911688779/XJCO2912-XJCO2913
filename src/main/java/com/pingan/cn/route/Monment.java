@@ -12,24 +12,22 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "joy_user") //pg库不能用user表
-public class User implements Serializable {
+@Table(name = "joy_moment")
+public class Monment implements Serializable {
 
     @Id
     @GenericGenerator(name = "idGenerator", strategy = "uuid2")
     @GeneratedValue(generator = "idGenerator")
     private String id;
 
-    @Column(unique = true)
-    private String username;
     @Column
-    private String password;
+    private String content; //
 
-    @Column
-    private String role;//用户的角色
+    private String userId; // 发起人
 
-    private String phoneNum;//手机号码
+    private String monment_time;
 
-    private String email;//email
+    private String[] imageIds; // 活动照片
 
+    private String[] loverIds; //
 }

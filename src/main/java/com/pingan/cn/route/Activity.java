@@ -12,8 +12,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "joy_user") //pg库不能用user表
-public class User implements Serializable {
+@Table(name = "joy_activity")
+public class Activity implements Serializable {
 
     @Id
     @GenericGenerator(name = "idGenerator", strategy = "uuid2")
@@ -21,15 +21,22 @@ public class User implements Serializable {
     private String id;
 
     @Column(unique = true)
-    private String username;
-    @Column
-    private String password;
+    private String name; // activity name
+
+    @Column(unique = true)
+    private String userId; // 发起人
 
     @Column
-    private String role;//用户的角色
+    private String address;
 
-    private String phoneNum;//手机号码
+    @Column
+    private String routes; // 活动路线
 
-    private String email;//email
+    private String activity_time;
 
+    private String content;
+
+    private String[] imageIds; // 活动照片
+
+    private String[] userIds; // 参与人员
 }

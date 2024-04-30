@@ -6,46 +6,40 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Api(tags = "user")
+@Api(tags = "joyfun_activity")
 @RestController
-@RequestMapping(value = "/api/user")
-public class UserController {
+@RequestMapping(value = "/api/joy/activity")
+public class ActivityController {
 
     @Autowired
-    private UserService userService;
+    private ActivityService activityService;
 
 
-    @PostMapping(value = "/register")
-    public ResponseUtil register(@RequestBody User user){
-        User user1 = new User();
-        return userService.register(user);
+    @PostMapping(value = "/save")
+    public ResponseUtil save(@RequestBody Activity bean){
+        return activityService.save(bean);
     }
 
     @GetMapping(value = "/findAll")
     public ResponseUtil findAll(){
-        return userService.findAll();
+        return activityService.findAll();
     }
 
     @GetMapping(value = "/delete/{id}")
     public ResponseUtil deleteById(@PathVariable String id){
-        return userService.deleteById(id);
-    }
-
-    @GetMapping(value = "/login/{username}/{password}")
-    public ResponseUtil login(@PathVariable String username,@PathVariable String password){
-        return userService.findByUsernameAndPassword(username,password);
+        return activityService.deleteById(id);
     }
 
     @ApiOperation(value = "deleteBatch")
     @PostMapping(value = "/deleteBatch")
     public @ResponseBody ResponseUtil deleteBatch(@RequestBody String[] ids){
-        boolean action = userService.deleteBatch(ids);
+        boolean action = activityService.deleteBatch(ids);
         return ResponseUtil.builder().success(true).data(action).build();
     }
 
     @ApiOperation(value = "update")
     @PostMapping(value = "/update")
-    public ResponseUtil updateAction(@RequestBody User action){
-        return ResponseUtil.builder().success(true).data(userService.update(action)).build();
+    public ResponseUtil updateAction(@RequestBody Activity action){
+        return ResponseUtil.builder().success(true).data(activityService.update(action)).build();
     }
 }
